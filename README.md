@@ -111,3 +111,6 @@ Remove um cliente e seus documentos associados do sistema.
     python manage.py runserver
     ```
 
+5. Acesse a rota: /customers
+
+
