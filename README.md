@@ -88,7 +88,7 @@ Remove um cliente e seus documentos associados do sistema.
 1. Clone o repositório:
 
    ```
-   git clone https://github.com/MaduSilva/PI-DRP14-G16.git
+   git clone https://github.com/MaduSilva/DeclaraProBackend.git
 
    cd DeclaraProBackend
    ```
