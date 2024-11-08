@@ -42,7 +42,6 @@ Retorna uma lista de todos os clientes.
             {
                 "id": 1,
                 "name": "RG",
-                "document_type": "pdf",
                 "file": "documents/rg_maria.pdf",
                 "uploaded_at": "2023-09-24T00:00:00Z"
             }

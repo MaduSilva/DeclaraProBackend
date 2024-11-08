@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
-        fields = ['id', 'name', 'document_type', 'file', 'uploaded_at']
+        fields = ['id', 'name', 'file', 'uploaded_at']
     
     def create(self, validated_data):
         try:
