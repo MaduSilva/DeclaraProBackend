@@ -15,8 +15,6 @@ def getCustomer(request, customer_id=None):
             customer = Customer.objects.get(id=customer_id)
             serializer = CustomerSerializer(customer)
             customer_data = serializer.data
-            if not customer_data.get('documents'):
-                customer_data['documents'] = "Sem documentos cadastrados"
             return Response(customer_data, status=status.HTTP_200_OK)
         except Customer.DoesNotExist:
             return Response({"detail": "Cliente não encontrado"}, status=status.HTTP_404_NOT_FOUND)
@@ -24,9 +22,6 @@ def getCustomer(request, customer_id=None):
         items = Customer.objects.all()
         serializer = CustomerSerializer(items, many=True)
         customer_data = serializer.data
-        for customer in customer_data:
-            if not customer.get('documents'):
-                customer['documents'] = "Sem documentos cadastrados"
         return Response(customer_data, status=status.HTTP_200_OK)
 
 @api_view(['POST'])
@@ -54,6 +49,24 @@ def deleteCustomer(request, customer_id):
             "error_description": "Cliente não encontrado."
         }, status=status.HTTP_404_NOT_FOUND)
 
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+def editCustomer(request, customer_id):
+    try:
+        customer = Customer.objects.get(id=customer_id)
+
+        serializer = CustomerSerializer(customer, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    except Customer.DoesNotExist:
+        return Response({
+            "error_status": status.HTTP_404_NOT_FOUND,
+            "error_description": "Customer não encontrado."
+        }, status=status.HTTP_404_NOT_FOUND)
+
 
 # Document
 
@@ -63,7 +76,10 @@ def postDocument(request, customer_id):
     try:
         customer = Customer.objects.get(id=customer_id)
     except Customer.DoesNotExist:
-        return Response({"error": "Customer não encontrado."}, status=status.HTTP_404_NOT_FOUND)
+        return Response({
+        "error_status": status.HTTP_404_NOT_FOUND,  
+        "error_description": "Customer não encontrado."  
+    }, status=status.HTTP_404_NOT_FOUND)
 
     serializer = DocumentSerializer(data=request.data)
     if serializer.is_valid():
