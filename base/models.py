@@ -1,5 +1,9 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
+import random
+import string
 
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
@@ -9,12 +13,22 @@ class Customer(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     status = models.CharField(max_length=110)
+    username = models.CharField(max_length=255, unique=True, blank=True, null=True)  
+    password = models.CharField(max_length=255, blank=True, null=True)  
+    
+    def generate_username_and_password(self):
+        self.username = self.email
+        raw_password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+        self.password = make_password(raw_password)
+        
+       
+        
+        return raw_password
 
     def save(self, *args, **kwargs):
-        if self.id is None and Customer.objects.filter(cpf=self.cpf).exists():
-            pass
-        else:
-            super(Customer, self).save(*args, **kwargs)
+        if not self.username or not self.password:
+            self.generate_username_and_password() 
+        super(Customer, self).save(*args, **kwargs)
 
 class Document(models.Model):
     customer = models.ForeignKey(Customer, related_name='documents', on_delete=models.CASCADE)
