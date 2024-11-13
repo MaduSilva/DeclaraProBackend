@@ -21,10 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Como é só um trabalho acadêmico não vou me aprofundar na parte de guardar essa chave em prod T-T vai ficar aqui mesmo
 SECRET_KEY = 'django-insecure-s3#%^^x=gzvakfgcgzn6(!uxs^3qm=_#0n_!w3z*bal#ex2@(c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication', 
+        'api.auth.CustomerAuthentication'
     ],
 }
 
@@ -160,6 +162,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_TZ = True
 
-X_FRAME_OPTIONS = 'ALLOW-FROM http://localhost:4200'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}

@@ -1,10 +1,12 @@
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import check_password, make_password
 from rest_framework.response import Response 
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated, BasePermission
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
+from rest_framework.exceptions import PermissionDenied
 from rest_framework import status
 from base.models import Customer
+from .auth import CustomerAuthentication
 from .serializers import CustomerSerializer, DocumentSerializer, PasswordResetSerializer
 
 class IsAdmin(BasePermission):
@@ -15,22 +17,27 @@ class IsCustomerOrAdmin(BasePermission):
     def has_permission(self, request, view):
         if not request.user.is_authenticated:
             return False
-        
-        if request.user.is_staff:
-            return True
-        
-        if getattr(request.user, 'isCustomer', False):
-            if view.kwargs.get('customer_id') == str(request.user.id):
+
+        if hasattr(request.user, 'isCustomer') and request.user.isCustomer:
+            customer_id = view.kwargs.get('customer_id')
+
+
+            if str(customer_id) == str(request.user.id):
                 return True
-            return False
-        
-        raise PermissionDenied("Você não tem permissão para acessar este recurso.")
+
+        return False
+
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated, IsCustomerOrAdmin])
+@authentication_classes([CustomerAuthentication])
+@permission_classes([IsCustomerOrAdmin])
 def getCliente(request, customer_id=None):
     try:
-        customer = Customer.objects.get(id=customer_id) if customer_id else request.user
+        if customer_id:
+            customer = Customer.objects.get(id=customer_id)
+        else:
+            customer = request.user
+            
     except Customer.DoesNotExist:
         return Response({"detail": "Cliente não encontrado."}, status=status.HTTP_404_NOT_FOUND)
 

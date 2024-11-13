@@ -29,6 +29,10 @@ class Customer(models.Model):
         if not self.username or not self.password:
             self.generate_username_and_password() 
         super(Customer, self).save(*args, **kwargs)
+    
+    @property
+    def is_authenticated(self):
+        return True
 
 class Document(models.Model):
     customer = models.ForeignKey(Customer, related_name='documents', on_delete=models.CASCADE)
