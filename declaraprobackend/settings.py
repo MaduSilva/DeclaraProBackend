@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s3#%^^x=gzvakfgcgzn6(!uxs^3qm=_#0n_!w3z*bal#ex2@(c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'base',
+    'drf_yasg',
+    'api'
 ]
 
 REST_FRAMEWORK = {

@@ -1,0 +1,1377 @@
+{
+	"info": {
+		"_postman_id": "484a8d5c-4a45-447d-b5c2-fe16c13b041a",
+		"name": "DeclaraPro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33032294"
+	},
+	"item": [
+		{
+			"name": "Document",
+			"item": [
+				{
+					"name": "Add Document to a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2ODg2MTQ4LCJpYXQiOjE3NDY4ODI1NDgsImp0aSI6IjI0ZTgxZmExMDU5YzRhZGQ4OTBhNmM4MjY5M2JhYzEyIiwidXNlcl9pZCI6Mn0.7CX2ohVDirtiDhXAFLSBrbj0ntvtmDQALylXNixMJFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "conta de luzzz",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/marri/Downloads/contadeluz.jpeg"
+								},
+								{
+									"key": "document_type",
+									"value": "jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/4/documents/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"4",
+								"documents",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Document to a user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "conta de luzzz",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/marri/Downloads/contadeluz.jpeg"
+										},
+										{
+											"key": "document_type",
+											"value": "jpg",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/4/documents/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"4",
+										"documents",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 10 May 2025 13:19:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, POST"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"conta de luzzz\",\n    \"file\": \"/documents/contadeluz_ttE0o3d.jpeg\",\n    \"uploaded_at\": \"2025-05-10T10:19:13.447463-03:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxMDExODEyLCJpYXQiOjE3MzEwMDgyMTIsImp0aSI6IjhiZWM1ZGRhZTAyMDQ2MjM4NjgzMzI3ZDgyYjdkZmM3IiwidXNlcl9pZCI6MX0.kiqtUTmgoMsVwe1cbf8ClaXq6c8P1X-ZzKlxwxm9ZA8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {auth_token}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/customers/3/documents/5/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"customers",
+								"3",
+								"documents",
+								"5",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Document",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {auth_token}",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/4/documents/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"4",
+										"documents",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 10 May 2025 14:03:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Rename Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2ODk5NzM1LCJpYXQiOjE3NDY4OTYxMzUsImp0aSI6IjVmNzNlZjM5MWJkNzQxNTBiZWM5ZmJjNzJlMmZkNGRiIiwidXNlcl9pZCI6Mn0.nX5pc8iSPS0yfA8Ld7SPeQ3sA5GHAcbFbw0froM9pJI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {auth_token}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"conta de luz nova\"\r\n}  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/4/documents/4/rename/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"4",
+								"documents",
+								"4",
+								"rename",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Document Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {auth_token}",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"conta de luz nova\"\r\n}  ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/4/documents/4/rename/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"4",
+										"documents",
+										"4",
+										"rename",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 10 May 2025 17:11:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "PUT, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"description\": \"Document renamed successfully\",\n    \"document\": {\n        \"id\": 4,\n        \"name\": \"conta de luz nova\",\n        \"file\": \"/documents/contadeluz_gi3vESj.jpeg\",\n        \"uploaded_at\": \"2025-05-10T13:57:18.675367-03:00\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Add New Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzIxNDczLCJpYXQiOjE3NDYzMTc4NzMsImp0aSI6IjA4YmI4N2JkODVkYjQ0NmQ5NTUwODhmYTcyOWExOTVjIiwidXNlcl9pZCI6Mn0.jjG4ozSueE8GmFyM6B1-T7h32gB3pfI0lPgbYt5L1ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kaio Gustavo\",\r\n    \"cpf\": \"688.669.618-17\",\r\n    \"birthDate\": \"2004-08-30\",\r\n    \"email\": \"kaio_gustavo@outlook.com.br\",\r\n    \"phone\": \"11985394650\",\r\n    \"status\": \"Em Análise\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"add",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add New Customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ana Souza\",\r\n    \"cpf\": \"111.222.333-44\",\r\n    \"birthDate\": \"1992-02-02\",\r\n    \"email\": \"aaaana@example.com\",\r\n    \"phone\": \"11912345678\",\r\n    \"status\": \"Em Análise\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/customers/add/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"customers",
+										"add",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"id\": 2,\r\n    \"name\": \"Kaio Gustavo\",\r\n    \"cpf\": \"688.669.618-17\",\r\n    \"birthDate\": \"2004-08-30\",\r\n    \"email\": \"kaio_gustavo@outlook.com.br\",\r\n    \"phone\": \"11985394650\",\r\n    \"status\": \"Em Análise\",\r\n    \"documents\": [],\r\n    \"raw_password\": \"esRFCun5\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzE4MDU2LCJpYXQiOjE3NDYzMTQ0NTYsImp0aSI6IjE5MDY3OTYwNWQ2NzRjZGNhYzFhMTdiZjI5ZTU4MzI2IiwidXNlcl9pZCI6Mn0.Jmb5tMSpEDzCKA8cuZn4V-hDF-JNFemsqf8xlAvOKMc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Customers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Hugo Zanganelli\",\r\n        \"cpf\": \"45754845555\",\r\n        \"birthDate\": \"2000-07-25\",\r\n        \"email\": \"HugoZanganelli@gmail.com\",\r\n        \"phone\": \"11948775698\",\r\n        \"status\": \"Documento Pendente\",\r\n        \"documents\": []\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzIzMzM1LCJpYXQiOjE3NDYzMTk3MzUsImp0aSI6IjNiMGZhOWVmMTE4ODRiN2Y5MjQzZmNkNWYyY2M0MWM5IiwidXNlcl9pZCI6Mn0.nmtQaBOm2jBp6AZjBMLoSjzgMtZXqVJ8XtkdIs7qO0Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/remove/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"remove",
+								"3",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Customer",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/remove/3/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"remove",
+										"3",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 04 May 2025 00:55:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "reset password customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzIzODYwLCJpYXQiOjE3NDYzMjAyNjAsImp0aSI6IjU2OTkzY2QyYjI3NTQ0ODJhMzQyM2E2Y2Q4YjhiMjM2IiwidXNlcl9pZCI6Mn0.uIsV2pVU3WNuHEh0CX5L7rUYx2_f7vRc0o2Vs2O5w8M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"senha\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/customers/reset-password/4/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"reset-password",
+								"4",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reset password customer",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"senha\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/customers/reset-password/4/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"reset-password",
+										"4",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 04 May 2025 01:35:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, PATCH"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Senha redefinida com sucesso.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get One Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzE4MDU2LCJpYXQiOjE3NDYzMTQ0NTYsImp0aSI6IjE5MDY3OTYwNWQ2NzRjZGNhYzFhMTdiZjI5ZTU4MzI2IiwidXNlcl9pZCI6Mn0.Jmb5tMSpEDzCKA8cuZn4V-hDF-JNFemsqf8xlAvOKMc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get One Customer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/1/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"1",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Hugo Zanganelli\",\r\n    \"cpf\": \"45754845555\",\r\n    \"birthDate\": \"2000-07-25\",\r\n    \"email\": \"HugoZanganelli@gmail.com\",\r\n    \"phone\": \"11948775698\",\r\n    \"status\": \"Documento Pendente\",\r\n    \"documents\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Customer Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzIzODYwLCJpYXQiOjE3NDYzMjAyNjAsImp0aSI6IjU2OTkzY2QyYjI3NTQ0ODJhMzQyM2E2Y2Q4YjhiMjM2IiwidXNlcl9pZCI6Mn0.uIsV2pVU3WNuHEh0CX5L7rUYx2_f7vRc0o2Vs2O5w8M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {access_token}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kaio Guilherme\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/edit/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"edit",
+								"4",
+								""
+							]
+						},
+						"description": "Generated from cURL: curl -X PATCH http://localhost:8000/api/customers/{customer_id}/ \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Authorization: Bearer {access_token}\" \\\r\n  -d '{\r\n        \"name\": \"Novo Nome\",\r\n        \"email\": \"novonome@dominio.com\"\r\n      }'\r\n"
+					},
+					"response": [
+						{
+							"name": "Edit Customer Info",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {access_token}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Kaio Guilherme\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/customers/edit/4/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customers",
+										"edit",
+										"4",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 04 May 2025 01:01:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, PATCH"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "178"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"name\": \"Kaio Guilherme\",\n    \"cpf\": \"688.669.618-17\",\n    \"birthDate\": \"2004-08-30\",\n    \"email\": \"kaio_gustavo@outlook.com.br\",\n    \"phone\": \"11985394650\",\n    \"status\": \"Em Análise\",\n    \"documents\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customer-Account",
+			"item": [
+				{
+					"name": "get customer info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MjMzMzk0LCJpYXQiOjE3NDYyMjk3OTQsImp0aSI6IjY5MzVjMzRiMjMwOTRlZWJiYzIwNWMwMGRmNTFkYWZkIiwidXNlcl9pZCI6MSwiaXNDdXN0b21lciI6dHJ1ZX0.pOGeC9bKTu5FAFxzPvw_GyN-h8a7j04lFoQLdxaEXrE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/customer-account/1/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer-account",
+								"1",
+								"info"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get customer info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/customer-account/1/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customer-account",
+										"1",
+										"info"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"name\": \"Hugo Zanganelli\",\r\n    \"status\": \"Documento Pendente\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "login customer account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "kaio_gustavo@outlook.com.br",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "senha",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/customer-account/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer-account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login customer account",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "HugoZanganelli@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/customer-account/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customer-account",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NjQwMTE3NywiaWF0IjoxNzQ2MzE0Nzc3LCJqdGkiOiIwMzAxNGMzMzI1YzU0YzIxYWQyOWI0NjczZGUxMTI2MyIsInVzZXJfaWQiOjEsImlzQ3VzdG9tZXIiOnRydWV9.a8NsaRkcm87DoeZzaEsT_FkC0XOdgc5tpbV6uplZKbI\",\r\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzE4Mzc3LCJpYXQiOjE3NDYzMTQ3NzcsImp0aSI6ImQ2MzMwNjNlYmE5MjQyZDFhNDA3OTJiNDZmNDA2M2MwIiwidXNlcl9pZCI6MSwiaXNDdXN0b21lciI6dHJ1ZX0.gaHSjLVOefruPamrvErOr76OvJ4iCVmCx3zIo5fRDFs\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "madu",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "zerobaseone",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "madu",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "zerobaseone",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\r\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NjQwMDg1NiwiaWF0IjoxNzQ2MzE0NDU2LCJqdGkiOiIwM2ZiMjE2MDExZmU0ZjU1YWRhYTEyNDFiNTRjMGE1ZCIsInVzZXJfaWQiOjJ9.oCoGQcLAaUn6yYjs9UL0jGIW_2QNS2VCgPNOjX3xnto\",\r\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ2MzE4MDU2LCJpYXQiOjE3NDYzMTQ0NTYsImp0aSI6IjE5MDY3OTYwNWQ2NzRjZGNhYzFhMTdiZjI5ZTU4MzI2IiwidXNlcl9pZCI6Mn0.Jmb5tMSpEDzCKA8cuZn4V-hDF-JNFemsqf8xlAvOKMc\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Calculator",
+			"item": [
+				{
+					"name": "calculate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MDk0OTg1LCJpYXQiOjE3NDcwOTEzODUsImp0aSI6ImM1M2QyOTliODQyMDQ2NTg5ODhjZjEwNTdkNGMzYzU1IiwidXNlcl9pZCI6NCwiaXNDdXN0b21lciI6dHJ1ZX0.UKiWzzKhQUChwXqPDND-5pcnyn1hh68xom2mY05yvf8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"income\": 72000,\r\n    \"inss\": 8000,\r\n    \"private_pension\": 0,\r\n    \"paid_irrf\": 6400,\r\n    \"dependents\": 0,\r\n    \"education\": 2000,\r\n    \"health\": 0,\r\n    \"alimony\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/customer-account/calculator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer-account",
+								"calculator"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "calculate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"income\": 72000,\r\n    \"inss\": 8000,\r\n    \"private_pension\": 0,\r\n    \"paid_irrf\": 6400,\r\n    \"dependents\": 0,\r\n    \"education\": 2000,\r\n    \"health\": 0,\r\n    \"alimony\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/customer-account/calculator",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"customer-account",
+										"calculator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 12 May 2025 23:22:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"taxable_amount\": 57600,\n    \"tax_due\": 5087.98,\n    \"paid_irrf\": 6400,\n    \"amountDifference\": 1312.02,\n    \"isRefund\": true,\n    \"deduction\": \"Simplified\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -42,7 +42,7 @@ class Document(models.Model):
 
     def clean(self):
         if Document.objects.filter(customer=self.customer, name=self.name).exists():
-            raise ValidationError(f"Já existe um documento com o nome '{self.name}' para este cliente.")
+            raise ValidationError(f"A document with the name '{self.name}' already exists for this customer.")
 
     def save(self, *args, **kwargs):
         self.clean()

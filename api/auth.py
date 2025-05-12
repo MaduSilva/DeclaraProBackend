@@ -23,8 +23,8 @@ class CustomerAuthentication(BaseAuthentication):
             customer.isCustomer = is_customer
 
         except (IndexError, jwt.ExpiredSignatureError, jwt.DecodeError) as e:
-            raise AuthenticationFailed('Token inválido ou expirado.')
+            raise AuthenticationFailed('Invalid or expired token.')
         except Customer.DoesNotExist:
-            raise AuthenticationFailed('Usuário não encontrado.')
+            raise AuthenticationFailed('User not found.')
 
         return (customer, token)
