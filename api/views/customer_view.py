@@ -5,6 +5,7 @@ from base.models import Customer
 from rest_framework import status
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework.permissions import AllowAny
 from api.serializers import CustomerSerializer, PasswordResetSerializer
 from django.contrib.auth.hashers import check_password, make_password
 import re
@@ -213,16 +214,7 @@ def sanitize_cpf(cpf):
 
 @swagger_auto_schema(
     method='get',
-    operation_description="Returns sanitized customer information for dashboard display. Returns customer name, masked CPF, and status for all customers.",
-    manual_parameters=[
-        openapi.Parameter(
-            'Authorization',
-            openapi.IN_HEADER,
-            description="Enter the token in format: 'Bearer' + token",
-            type=openapi.TYPE_STRING,
-            required=True
-        )
-    ],
+    operation_description="Returns sanitized customer information for dashboard display. Returns customer name, masked CPF, and status for all customers. Public endpoint (no authentication required).",
     responses={
         200: openapi.Response(
             description="Successful response",
@@ -239,7 +231,7 @@ def sanitize_cpf(cpf):
     }
 )
 @api_view(['GET'])
-@permission_classes([IsAdmin])
+@permission_classes([AllowAny])
 def getSanitizedCustomers(request):
     customers = Customer.objects.all()
     
