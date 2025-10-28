@@ -2,7 +2,7 @@ from django.urls import path, re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from .views.customer_view import getCustomer, postCustomer, deleteCustomer, editCustomer, resetPasswordCustomer
+from .views.customer_view import getCustomer, postCustomer, deleteCustomer, editCustomer, resetPasswordCustomer, getSanitizedCustomers
 from .views.document_view import postDocument, deleteDocument, renameDocument
 from .views.auth_view import loginCustomerAccount
 from .views.customer_account_view import getCustomerAccount
@@ -24,6 +24,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('customers/', getCustomer, name='customer-list'),
+    path('customers/dashboard/', getSanitizedCustomers, name='customer-sanitized-list'),
     path('customers/<int:customer_id>/', getCustomer, name='customer'),
     path('customers/add/', postCustomer, name='customer-add'),
     path('customers/remove/<int:customer_id>/', deleteCustomer, name='customer-delete'),

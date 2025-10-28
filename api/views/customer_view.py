@@ -7,6 +7,7 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from api.serializers import CustomerSerializer, PasswordResetSerializer
 from django.contrib.auth.hashers import check_password, make_password
+import re
 
 
 @swagger_auto_schema(
@@ -196,3 +197,59 @@ def resetPasswordCustomer(request, customer_id):
         "error_status": status.HTTP_400_BAD_REQUEST,
         "error_description": "The provided data is invalid"
     }, status=status.HTTP_400_BAD_REQUEST)
+
+
+def sanitize_cpf(cpf):
+    if not cpf:
+        return cpf
+    
+    clean_cpf = re.sub(r'\D', '', cpf)
+    
+    if len(clean_cpf) != 11:
+        return cpf
+    
+    return f"{clean_cpf[:3]}.***.***-*{clean_cpf[-1]}"
+
+
+@swagger_auto_schema(
+    method='get',
+    operation_description="Returns sanitized customer information for dashboard display. Returns customer name, masked CPF, and status for all customers.",
+    manual_parameters=[
+        openapi.Parameter(
+            'Authorization',
+            openapi.IN_HEADER,
+            description="Enter the token in format: 'Bearer' + token",
+            type=openapi.TYPE_STRING,
+            required=True
+        )
+    ],
+    responses={
+        200: openapi.Response(
+            description="Successful response",
+            examples={
+                "application/json": [
+                    {
+                        "Nome do Cliente": "João Silva",
+                        "CPF": "407.***.***-*6",
+                        "Status da Demanda": "Em Andamento"
+                    }
+                ]
+            }
+        )
+    }
+)
+@api_view(['GET'])
+@permission_classes([IsAdmin])
+def getSanitizedCustomers(request):
+    customers = Customer.objects.all()
+    
+    sanitized_data = []
+    for customer in customers:
+        sanitized_customer = {
+            "Nome do Cliente": customer.name,
+            "CPF": sanitize_cpf(customer.cpf),
+            "Status da Demanda": customer.status
+        }
+        sanitized_data.append(sanitized_customer)
+    
+    return Response(sanitized_data, status=status.HTTP_200_OK)
